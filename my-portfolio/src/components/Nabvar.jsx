@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import DownloadButton from './DownloadButton';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,7 +25,7 @@ const Navbar = () => {
             </div>
           </div>
           <div className="hidden md:block">
-            <a href="#cv" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">CV</a>
+            <DownloadButton/>
           </div>
           <div className="md:hidden">
             <button onClick={toggleNavbar} className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
