@@ -1,35 +1,36 @@
-import React, { useState } from 'react';
+
+
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
 
 const ContactMe = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: ''
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({ ...prevData, [name]: value }));
-  };
+  const form = useRef();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Envía el formulario a tu correo electrónico aquí
-    console.log('Formulario enviado:', formData);
-    // Limpia los campos después de enviar el formulario
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      message: ''
-    });
+    emailjs
+      .sendForm(
+        "service_jbee9ip",
+        "template_fmlnryu",
+        form.current,
+        "Sq3tRPSy1kYJm0tS_"
+      )
+      .then(
+        (result) => {
+          alert("e-mail sended")
+          form.current.reset();
+        },
+        (error) => {
+          alert("error")
+          console.log(error)
+        }
+      );
   };
 
   return (
     <div className="flex flex-col items-center mt-8">
       <h2 className="text-3xl font-bold">Contact Me</h2>
-      <form className="mt-6 w-72 sm:w-96" onSubmit={handleSubmit}>
+      <form ref={form} className="mt-6 w-72 sm:w-96" onSubmit={handleSubmit}>
         <label className="block mb-2" htmlFor="name">
           Name:
           <input
@@ -37,8 +38,6 @@ const ContactMe = () => {
             type="text"
             id="name"
             name="name"
-            value={formData.name}
-            onChange={handleChange}
             required
           />
         </label>
@@ -49,8 +48,6 @@ const ContactMe = () => {
             type="email"
             id="email"
             name="email"
-            value={formData.email}
-            onChange={handleChange}
             required
           />
         </label>
@@ -61,8 +58,6 @@ const ContactMe = () => {
             type="tel"
             id="phone"
             name="phone"
-            value={formData.phone}
-            onChange={handleChange}
             required
           />
         </label>
@@ -73,8 +68,6 @@ const ContactMe = () => {
             id="message"
             name="message"
             rows="4"
-            value={formData.message}
-            onChange={handleChange}
             required
           />
         </label>
