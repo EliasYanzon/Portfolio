@@ -1,12 +1,17 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
+import { validateForm } from "./validateForm";
 
 const ContactMe = () => {
   const form = useRef();
+  const [errors, setErrors] = useState();
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    emailjs
+    setErrors(validateForm(form.current))
+    if(Object.keys(errors)=== 0) {
+      emailjs
       .sendForm(
         "service_jbee9ip",
         "template_fmlnryu",
@@ -23,6 +28,10 @@ const ContactMe = () => {
           console.log(error)
         }
       );
+    } else {
+      console.log(errors)
+    }
+    
   };
 
   return (

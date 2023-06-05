@@ -4,7 +4,6 @@ import image from "../../Image/Perfil/DSC03925.JPG"
 const AboutMe = () => {
   return (
     <div className="flex flex-col md:flex-row items-center md:justify-center">
-      {/* Imagen */}
       <div className="w-full md:w-1/2">
         <img
           src={image}

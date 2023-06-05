@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import DownloadButton from "./DownloadButton";
 
-const Navbar = () => {
+const Navbar = ({ scrollTo }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleNavbar = () => {
@@ -21,18 +21,21 @@ const Navbar = () => {
                 <a
                   href="#about"
                   className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  onClick={() => scrollTo("about")}
                 >
                   About Me
                 </a>
                 <a
                   href="#techs"
                   className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  onClick={() => scrollTo("tech")}
                 >
                   Techs
                 </a>
                 <a
                   href="#contact"
                   className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  onClick={() => scrollTo("contact")}
                 >
                   Contact Me
                 </a>
