@@ -9,14 +9,11 @@ const Footer = () => {
           <p>Mi ubicación</p>
         </div>
         <div className="space-x-4">
-          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.linkedin.com/in/elias-yanzon-6167b4254/" target="_blank" rel="noopener noreferrer">
             <FaLinkedin size={24} />
           </a>
-          <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/EliasYanzon" target="_blank" rel="noopener noreferrer">
             <FaGithub size={24} />
-          </a>
-          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
-            <FaFacebook size={24} />
           </a>
         </div>
       </div>

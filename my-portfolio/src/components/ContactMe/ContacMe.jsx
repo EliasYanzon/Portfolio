@@ -58,16 +58,6 @@ const ContactMe = () => {
             required
           />
         </label>
-        <label className="block mb-2" htmlFor="phone">
-          Phone:
-          <input
-            className="w-full border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
-            type="tel"
-            id="phone"
-            name="phone"
-            required
-          />
-        </label>
         <label className="block mb-2" htmlFor="message">
           Message:
           <textarea

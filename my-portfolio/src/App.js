@@ -17,15 +17,15 @@ function App() {
   return (
     <>
       <Navbar scrollTo={scrollTo}/>
-      <Element name="about" className="h-screen border border-black">
+      {/* <Element name="about" className="h-screen border border-black">
         <AboutMe />
       </Element>
       <Element name="tech" className="h-screen border border-black">
         <TechSkills />
-      </Element>
-      {/* <Element name="contact" className="h-screen border border-black">
-        <ContactMe />
       </Element> */}
+      <Element name="contact" className="h-screen border border-black">
+        <ContactMe />
+      </Element>
       <Footer scrollTo={scrollTo} />
     </>
   );
