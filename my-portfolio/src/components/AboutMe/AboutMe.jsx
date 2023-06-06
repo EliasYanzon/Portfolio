@@ -3,12 +3,12 @@ import image from "../../Image/Perfil/DSC03925.JPG"
 
 const AboutMe = () => {
   return (
-    <div className="flex flex-col md:flex-row items-center md:justify-center">
+    <div className="h-screen flex flex-col justify-center md:flex-row items-center md:justify-center">
       <div className="w-full md:w-1/2">
         <img
           src={image}
           alt="Imagen de perfil"
-          className="mx-auto md:ml-0 md:mr-auto md:ml-auto h-auto w-60 md:h-screen md:w-auto rounded-full"
+          className="mx-auto md:ml-0 md:mr-auto md:ml-auto h-auto w-40 md:h-screen md:w-auto rounded-full"
         />
       </div>
       

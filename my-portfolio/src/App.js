@@ -16,10 +16,10 @@ function App() {
 
   return (
     <>
-      <Navbar scrollTo={scrollTo} />
-      {/* <Element name="about" className="h-screen border border-black">
+      <Navbar scrollTo={scrollTo}/>
+      <Element name="about" className="h-screen border border-black">
         <AboutMe />
-      </Element> */}
+      </Element>
       <Element name="tech" className="h-screen border border-black">
         <TechSkills />
       </Element>
