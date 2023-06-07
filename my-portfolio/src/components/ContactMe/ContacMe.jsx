@@ -1,47 +1,43 @@
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
-import { validateForm } from "./validateForm";
 
 const ContactMe = () => {
   const form = useRef();
-  const [errors, setErrors] = useState();
-
+  const [emailError, setEmailError] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setErrors(validateForm(form.current))
-    if(Object.keys(errors)=== 0) {
+
+    // Validación del campo de correo electrónico
+    const emailValue = form.current.email.value;
+    const isValidEmail = /\S+@\S+\.\S+/.test(emailValue);
+    setEmailError(!isValidEmail);
+
+    if (isValidEmail) {
       emailjs
-      .sendForm(
-        "service_jbee9ip",
-        "template_fmlnryu",
-        form.current,
-        "Sq3tRPSy1kYJm0tS_"
-      )
-      .then(
-        (result) => {
-          alert("e-mail sended")
-          form.current.reset();
-        },
-        (error) => {
-          alert("error")
-          console.log(error)
-        }
-      );
-    } else {
-      console.log(errors)
+        .sendForm(
+          "service_jbee9ip",
+          "template_fmlnryu",
+          form.current,
+          "Sq3tRPSy1kYJm0tS_"
+        )
+        .then((response) => {
+          console.log("Email sent successfully!", response);
+        })
+        .catch((error) => {
+          console.error("Error sending email:", error);
+        });
     }
-    
   };
 
   return (
-    <div className="flex flex-col items-center mt-8">
+    <div className="h-screen flex flex-col justify-center items-center mt-8">
       <h2 className="text-3xl font-bold">Contact Me</h2>
       <form ref={form} className="mt-6 w-72 sm:w-96" onSubmit={handleSubmit}>
         <label className="block mb-2" htmlFor="name">
           Name:
           <input
-            className="w-full border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+            className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
             type="text"
             id="name"
             name="name"
@@ -51,17 +47,22 @@ const ContactMe = () => {
         <label className="block mb-2" htmlFor="email">
           Email:
           <input
-            className="w-full border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+            className={`shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light ${
+              emailError ? "border-red-500" : ""
+            }`}
             type="email"
             id="email"
             name="email"
             required
           />
+          {emailError && (
+            <p className="text-red-500 text-sm mt-1">Invalid email address</p>
+          )}
         </label>
         <label className="block mb-2" htmlFor="message">
           Message:
           <textarea
-            className="w-full border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+            className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
             id="message"
             name="message"
             rows="4"
