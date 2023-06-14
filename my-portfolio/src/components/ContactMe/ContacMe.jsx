@@ -32,7 +32,7 @@ const ContactMe = () => {
 
   return (
     <div className="h-screen flex flex-col justify-center items-center mt-8">
-      <h2 className="text-3xl font-bold">Contact Me</h2>
+      <h2 className="text-3xl font-bold animate-pulse">Contact Me</h2>
       <form ref={form} className="mt-6 w-72 sm:w-96" onSubmit={handleSubmit}>
         <label className="block mb-2" htmlFor="name">
           Name:

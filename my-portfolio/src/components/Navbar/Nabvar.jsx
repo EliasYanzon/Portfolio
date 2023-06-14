@@ -62,34 +62,26 @@ const Navbar = ({ scrollTo }) => {
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <a
               href="#about"
-              className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+              className="text-gray-700 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+              onClick={() => scrollTo("about")}
             >
               About Me
             </a>
             <a
               href="#techs"
-              className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+              className="text-gray-700 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+              onClick={() => scrollTo("tech")}
             >
               Techs
             </a>
             <a
               href="#contact"
-              className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+              className="text-gray-700 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+              onClick={() => scrollTo("contact")}
             >
               Contact Me
             </a>
-          </div>
-          <div className="pt-4 pb-3 border-t border-gray-700">
-            <div className="flex items-center px-5">
-              <div className="ml-3">
-                <a
-                  href="#cv"
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  CV
-                </a>
-              </div>
-            </div>
+            <DownloadButton />
           </div>
         </div>
       )}

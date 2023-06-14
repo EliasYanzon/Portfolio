@@ -1,12 +1,13 @@
 import React from 'react';
-import { FaLinkedin, FaGithub, FaFacebook } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaGlobe  } from 'react-icons/fa';
+
 
 const Footer = () => {
   return (
     <footer className="bg-gray-200 py-4">
       <div className="container mx-auto flex justify-between items-center">
         <div className="text-center md:text-left">
-          <p>Mi ubicación</p>
+          <p>Rio Negro, Argentina <FaGlobe size={24}/></p>
         </div>
         <div className="space-x-4">
           <a href="https://www.linkedin.com/in/elias-yanzon-6167b4254/" target="_blank" rel="noopener noreferrer">

@@ -4,8 +4,8 @@ const DownloadButton = ()=> {
 
     const handleDownload = () => {
         const downloadLink = document.createElement('a')
-        downloadLink.href = "../../public/CV Elias Yanzon.pdf"
-        downloadLink.download = "CV Elias Yanzon.pdf"
+        downloadLink.href = "/CVEliasYanzon.pdf"
+        downloadLink.download = "CVEliasYanzon.pdf"
         downloadLink.click();
     }
     return(
